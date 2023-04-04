@@ -50,7 +50,7 @@ exports.register = async (req, res) => {
           pwd,
           wpwd,
           time: new Date(),
-          balance: 100,
+          balance: 120,
           recharge_amount: 0,
           withdrawal_sum: 0,
           earning: 0,
@@ -294,7 +294,7 @@ exports.update_recharge = async (req, res) => {
         // Level 1 recharge commission
         await User.updateOne({ _id: data.parent_id }, {
           $inc: {
-            balance: Number((10 / 100) * (Number(data.recharge_value))),
+            balance: Number((15 / 100) * (Number(data.recharge_value))),
             directRecharge: Number(data.recharge_value)
           },
           $addToSet: {
